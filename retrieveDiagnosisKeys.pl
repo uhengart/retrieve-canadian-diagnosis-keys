@@ -43,7 +43,7 @@ sub determineDiagnosisKeysURL {
 }
 
 $now = time;
-$dateString = strftime "%Y_%m_%d_%H_%M_%S_UTC", gmtime($now);
+$dateString = strftime "%Y-%m-%d_%H:%M:%S_UTC", gmtime($now);
 mkdir $dateString;
 
 # retrieve configuration 
@@ -64,7 +64,7 @@ system($cmd);
 $days = 14;
 for($i=0; $i<$days; $i++) {
 
-    $file = strftime "%Y_%m_%d", gmtime($now);
+    $file = strftime "%Y-%m-%d", gmtime($now);
     $url = determineDiagnosisKeysURL($i);
     $output = $dateString."/".$file.".zip";
     $cmd = "wget -q -O ".$output." ".$url;
