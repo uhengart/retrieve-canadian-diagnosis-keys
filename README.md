@@ -1,5 +1,5 @@
 # retrieve-canadian-diagnosis-keys
-Perl script for retrieving the diagnosis keys (aka temporary exposure keys) uploaded by [COVID Alert](https://github.com/cds-snc/covid-alert-app), Canada's exposure notifications app, from Health Canada's server.
+retrieveDiagnosisKeys.pl is a Perl script for retrieving the diagnosis keys (aka temporary exposure keys) uploaded by [COVID Alert](https://github.com/cds-snc/covid-alert-app), Canada's exposure notifications app, from Health Canada's server.
 
 Run the script and it will create a directory whose name is the current time (in UTC) with the following files:
 * *config.json* containing the current configuration for COVID Alert.
@@ -8,3 +8,4 @@ Run the script and it will create a directory whose name is the current time (in
 
 You can use the [diagnosis-keys tools](https://github.com/mh-/diagnosis-keys) for analyzing the downloaded diagnosis keys. 
 
+DetermineDiagnosisKeysURL.java is a Java program that outputs the URL to download all available diagnosis keys (if the program is given no argument) or the URL to download the diagnosis keys uploaded n days ago (where 0 <= n < 14 is given as an argument to the program)
