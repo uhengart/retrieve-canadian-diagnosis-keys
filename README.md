@@ -10,4 +10,4 @@ Combining all.zip with the file containing the keys uploaded today will give you
 
 You can use the [diagnosis-keys tools](https://github.com/mh-/diagnosis-keys) for analyzing the downloaded diagnosis keys. 
 
-DetermineDiagnosisKeysURL.java is a Java program that outputs the URL to download all available diagnosis keys (if the program is given no argument) or the URL to download the diagnosis keys uploaded n days ago (where 0 <= n < 14 is given as an argument to the program)
+DetermineDiagnosisKeysURL.java is a Java program that outputs the URL to download all available diagnosis keys (if the program is given no argument) or the URL to download the diagnosis keys uploaded n days ago (where 0 <= n <= 14 is given as an argument to the program)
