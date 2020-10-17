@@ -61,7 +61,7 @@ $cmd = "wget -q -O ".$output." ".$url;
 system($cmd);
 
 # retrieve all available keys based on the day they were uploaded
-$days = 14;
+$days = 15;
 for($i=0; $i<$days; $i++) {
 
     $file = strftime "%Y-%m-%d", gmtime($now);
