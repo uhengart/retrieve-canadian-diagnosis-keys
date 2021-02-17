@@ -9,6 +9,8 @@ sub determineDiagnosisKeysURL {
 
     my @params = @_;
 
+    die if ($#params < 0);
+
     # determine URL for retrieving diagnosis keys as outlined here:
     # https://github.com/cds-snc/covid-alert-server/tree/master/proto#retrieveregiondatenumberhmac
 
@@ -23,21 +25,33 @@ sub determineDiagnosisKeysURL {
 
     my $HOURS_PER_PERIOD = 24;
 
-    if ($#params >= 0) {
+    if ($#params >= 1) {
         # URL part for retrieving all keys that were submitted the given number of days ago 
-        $daysAgo = $params[0];
+        $daysAgo = $params[1];
         $periodStr = floor(time / 3600 / $HOURS_PER_PERIOD) - $daysAgo;
     }
     else {
         # URL part for retrieving all available keys
         $periodStr = $LAST_14_DAYS_PERIOD;
     }
+   
+    # https://github.com/cds-snc/covid-alert-server/pull/438
+    my $type = "";
+    if ($params[0] eq "teks") {
+        $type = "/retrieve/";
+    }
+    elsif ($params[0] eq "outbreaks") {
+        $type = "/qr/";
+    }
+    else {
+        die;
+    }
 
     my $now = floor(time / 3600);
     my $message = $MCC_CODE.":".$periodStr .":".$now;
     my $hmac=hmac_sha256_hex($message, pack('H*', $hmacKey));
-    my $url = $retrieveUrl."/retrieve/".$MCC_CODE."/".$periodStr."/".$hmac;
-    #print $url;
+    my $url = $retrieveUrl.$type.$MCC_CODE."/".$periodStr."/".$hmac;
+    print $url;
 
     return $url;
 }
@@ -53,22 +67,45 @@ $cmd = "wget -q -O ".$output." ".$url;
 #print $cmd;
 system $cmd;
 
-# retrieve all available keys
-$url = determineDiagnosisKeysURL();
+# retrieve all available TEKs
+$url = determineDiagnosisKeysURL("teks");
 $output = $dateString."/all.zip";
 $cmd = "wget -q -O ".$output." ".$url;
 #print $cmd;
 system($cmd);
 
-# retrieve all available keys based on the day they were uploaded
+# retrieve all available outbreaks
+$url = determineDiagnosisKeysURL("outbreaks");
+$output = $dateString."/outbreaks.all.zip";
+$cmd = "wget -q -O ".$output." ".$url;
+#print $cmd;
+system($cmd);
+
+# retrieve all available TEKs based on the day they were uploaded
 $days = 15;
 for($i=0; $i<$days; $i++) {
 
     $file = strftime "%Y-%m-%d", gmtime($now);
-    $url = determineDiagnosisKeysURL($i);
+    $url = determineDiagnosisKeysURL("teks", $i);
     $output = $dateString."/".$file.".zip";
     $cmd = "wget -q -O ".$output." ".$url;
-    #print $cmd;
+#    print $cmd;
+    system($cmd);
+
+    $now -= 86400;
+}
+
+$now = time;
+
+# retrieve all available outbreaks based on the day they were uploaded
+$days = 15;
+for($i=0; $i<$days; $i++) {
+
+    $file = strftime "%Y-%m-%d", gmtime($now);
+    $url = determineDiagnosisKeysURL("outbreaks", $i);
+    $output = $dateString."/outbreaks.".$file.".zip";
+    $cmd = "wget -q -O ".$output." ".$url;
+#    print $cmd;
     system($cmd);
 
     $now -= 86400;
