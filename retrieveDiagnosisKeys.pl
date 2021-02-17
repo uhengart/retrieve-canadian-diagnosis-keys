@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# script for downloading all currently available COVID Alert diagnosis keys 
+# script for downloading all currently available COVID Alert diagnosis keys (TEKs) and outbreaks
 
 use POSIX;
 use Digest::SHA qw(hmac_sha256_hex);
