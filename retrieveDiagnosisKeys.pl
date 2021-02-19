@@ -51,7 +51,7 @@ sub determineDiagnosisKeysURL {
     my $message = $MCC_CODE.":".$periodStr .":".$now;
     my $hmac=hmac_sha256_hex($message, pack('H*', $hmacKey));
     my $url = $retrieveUrl.$type.$MCC_CODE."/".$periodStr."/".$hmac;
-    print $url;
+#    print $url;
 
     return $url;
 }
