@@ -3,8 +3,8 @@ package app.covidshield;
 public final class BuildConfig {
     public static final String APPLICATION_ID = "ca.gc.hcsc.canada.stopcovid";
     public static final String APP_ID = "ca.gc.hcsc.canada.stopcovid";
-    public static final String APP_VERSION_CODE = "278";
-    public static final String APP_VERSION_NAME = "1.2.6";
+    public static final String APP_VERSION_CODE = "281";
+    public static final String APP_VERSION_NAME = "1.2.7";
     public static final String BUILD_TYPE = "release";
     public static final boolean DEBUG = false;
     public static final String EN_API_VERSION = "1";
@@ -23,8 +23,8 @@ public final class BuildConfig {
     public static final String SUBMIT_URL = "https://submission.covid-notification.alpha.canada.ca";
     public static final String TEMPLATE = "Exposure Notification for TEAMID (Distribution) iOS Dist";
     public static final String TEST_MODE = "false";
-    public static final int VERSION_CODE = 278;
-    public static final String VERSION_NAME = "1.2.6";
+    public static final int VERSION_CODE = 281;
+    public static final String VERSION_NAME = "1.2.7";
     public static final String XCODE_PROFILE = "Stop COVID App Store Profile";
     public static final String XCODE_SCHEME = "Production";
 }
