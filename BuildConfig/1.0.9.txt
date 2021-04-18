@@ -1,0 +1,22 @@
+package app.covidshield;
+
+public final class BuildConfig {
+    public static final String APPLICATION_ID = "ca.gc.hcsc.canada.stopcovid";
+    public static final String APP_ID_ANDROID = "ca.gc.hcsc.canada.stopcovid";
+    public static final String APP_ID_IOS = "ca.gc.hcsc.canada.stopcovid";
+    public static final String APP_VERSION_CODE = "101";
+    public static final String APP_VERSION_NAME = "1.0.9";
+    public static final String BUILD_TYPE = "release";
+    public static final boolean DEBUG = false;
+    public static final String FLAVOR = "";
+    public static final String HMAC_KEY = "3631313045444b345742464633504e44524a3457494855505639593136464a3846584d4c59334d30";
+    public static final String MCC_CODE = "302";
+    public static final String MINIMUM_FETCH_INTERVAL = "15";
+    public static final String MOCK_SERVER = "false";
+    public static final String PROFILE = "Stop COVID App Store Profile";
+    public static final String RETRIEVE_URL = "https://retrieval.covid-notification.alpha.canada.ca";
+    public static final String SUBMIT_URL = "https://submission.covid-notification.alpha.canada.ca";
+    public static final String TEST_MODE = "false";
+    public static final int VERSION_CODE = 101;
+    public static final String VERSION_NAME = "1.0.9";
+}
