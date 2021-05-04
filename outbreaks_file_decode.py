@@ -8,7 +8,7 @@ import datetime
 def get_string_from_datetime(date_time):
     return date_time.strftime('%Y-%m-%d %H:%M:%S %Z')
 
-zip_file = zipfile.ZipFile("export.bin")
+zip_file = zipfile.ZipFile("outbreaks.2021-05-04.zip")
 export_bin = zip_file.read("export.bin")
 
 # The binary format file consists of a 16 byte header,
@@ -18,7 +18,7 @@ header_str = label + ' ' * (16-len(label))
 header = header_str.encode("UTF-8")
 
 if not export_bin[:len(header)] == header:
-    print("ERROR: export.bin (extracted from %s) does not start with '%s'" % (file_name, header_str))
+    print("ERROR: export.bin (extracted from %s) does not start with '%s'" % (zip_file, header_str))
     print("ERROR: instead '%s'" % str(export_bin[:len(header)]))
     exit(1)
 
