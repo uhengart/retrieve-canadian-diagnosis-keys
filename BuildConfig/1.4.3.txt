@@ -1,0 +1,31 @@
+package app.covidshield;
+
+public final class BuildConfig {
+    public static final String APPLICATION_ID = "ca.gc.hcsc.canada.stopcovid";
+    public static final String APP_ID = "ca.gc.hcsc.canada.stopcovid";
+    public static final String APP_VERSION_CODE = "341";
+    public static final String APP_VERSION_NAME = "1.4.3";
+    public static final String BUILD_TYPE = "release";
+    public static final boolean DEBUG = false;
+    public static final String EN_API_VERSION = "1";
+    public static final String EN_CONFIG_URL = "https://retrieval.covid-notification.alpha.canada.ca/exposure-configuration/1.2.5/CA.json";
+    public static final String HMAC_KEY = "3631313045444b345742464633504e44524a3457494855505639593136464a3846584d4c59334d30";
+    public static final String MCC_CODE = "302";
+    public static final String METRICS_API_KEY = "7uueCf8Kiv2JaeasGEaPN2Ij9LJ5qicM6I8nsOOU";
+    public static final String METRICS_URL = "https://metrics.covid-notification.alpha.canada.ca/save-metrics";
+    public static final String MINIMUM_FETCH_INTERVAL = "15";
+    public static final String MOCK_SERVER = "false";
+    public static final String NOTIFICATION_FEED_URL = "https://retrieval.covid-notification.alpha.canada.ca/exposure-configuration/notifications-1.2.2.json";
+    public static final String OUTBREAK_PUBLIC_KEY = "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8oM6jlEslwzTG+sbdkBJwVnRj176nBHvMR66Fqjchohs7sBE+Mlxe6l3O3yHvREn9Nn9yEJcnEYvgFLuyUj/vQ==";
+    public static final String QR_CODE_PUBLIC_KEY = "VDWmIAzG9E6DHI4Hm4oGpLN4B51z/nmqKt81GgOR6GQ=";
+    public static final String QR_ENABLED = "false";
+    public static final String QR_HOST = "alpha.canada.ca";
+    public static final String RETRIEVE_URL = "https://retrieval.covid-notification.alpha.canada.ca";
+    public static final String SUBMIT_URL = "https://submission.covid-notification.alpha.canada.ca";
+    public static final String TEMPLATE = "Exposure Notification for TEAMID (Distribution) iOS Dist";
+    public static final String TEST_MODE = "false";
+    public static final int VERSION_CODE = 341;
+    public static final String VERSION_NAME = "1.4.3";
+    public static final String XCODE_PROFILE = "Stop COVID App Store Profile";
+    public static final String XCODE_SCHEME = "Production";
+}
